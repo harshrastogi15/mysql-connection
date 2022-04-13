@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/add.css">
+    <title>Student Data : Add</title>
+</head>
+
+<body>
+    <h1>Add Student Data</h1>
+    <div class="formcreation">
+        <form action="/add" method="post">
+            <div class="element">
+                <label for="rollno">Roll No</label>
+                <input type="text" name="rollno" id="rollno" placeholder="roll no" required>
+            </div>
+            <div class="element">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Name" required>
+            </div>
+            <div class="element">
+                <label for="dob">DOB</label>
+                <input type="date" name="dob" id="dob" required>
+            </div>
+            <div class="element">
+                <label for="gender">Gender : </label>
+                <select name="gender" id="gender" required>
+                    <option value="none">select</option>
+                    <option value="Male">Male</option>
+                    <option value="Male">Female</option>
+                    <option value="Male">other</option>
+                </select>
+            </div>
+            <div class="element">
+                <label for="branch">Branch : </label>
+                <select name="branch" id="branch" required>
+                    <option value="none">select</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="MEA">MEA</option>
+                </select>
+            </div>
+            <div class="element">
+                <label for="semester">Semester</label>
+                <input type="number" name="semester" id="semester" placeholder="semester" required>
+            </div>
+            <div class="element">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="done">
+                <input type="submit" value="SUBMIT" >
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

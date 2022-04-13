@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Student Data : List</title>
+</head>
+
+<body>
+    <div class="heading">
+        <h1>STUDENT DATA</h1>
+        <a href="/add">Add Student</a>
+    </div>
+    <table>
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Dob</th>
+            <th>Gender</th>
+            <th>Branch</th>
+            <th>Semester</th>
+            <th>Email</th>
+        </tr>
+        <% result.forEach(element=> { %>
+            <tr>
+                <td>
+                    <%= element.rollno %>
+                </td>
+                <td>
+                    <%= element.name %>
+                </td>
+                <td>
+                    <%= element.dob %>
+                </td>
+                <td>
+                    <%= element.gender %>
+                </td>
+                <td>
+                    <%= element.branch %>
+                </td>
+                <td>
+                    <%= element.semester %>
+                </td>
+                <td>
+                    <%= element.email %>
+                </td>
+                <td>
+                    <i onclick="updatefunc('<%= element.rollno %>','<%= element.name %>','<%= element.dob %>','<%= element.gender %>','<%= element.branch%>','<%= element.semester %>','<%= element.email%>')" class="fa fa-file"></i>
+                </td>
+                <td>
+                    <i onclick="deletefunc(this.id)" id="<%=element.rollno%>" class="fa fa-trash"></i>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+    <div class="model" id="model">
+        <form class="updateform" action="/update" method="post">
+            <h4>Update</h4>
+            <div class="element">
+                <label for="rollno">Roll No</label>
+                <input type="text" name="rollno" id="rollno" placeholder="roll no" required>
+            </div>
+            <div class="element">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Name" required>
+            </div>
+            <div class="element">
+                <label for="dob">DOB</label>
+                <input type="text" name="dob" id="dob" required>
+            </div>
+            <div class="element">
+                <label for="gender">Gender : </label>
+                <input type="text" name="gender" id="gender">
+            </div>
+            <div class="element">
+                <label for="branch">Branch : </label>
+                <input type="text" name="branch" id="branch">
+            </div>
+            <div class="element">
+                <label for="semester">Semester</label>
+                <input type="number" name="semester" id="semester" placeholder="semester" required>
+            </div>
+            <div class="element">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="done">
+                <input type="submit" value="SUBMIT">
+            </div>
+        </form>
+    </div>
+    <script>
+        async function deletefunc(e) {
+            let data = {
+                "rollno": e
+            }
+            await fetch('/delete', {
+                method: 'post',
+                headers: {
+                    'Content-Type':
+                        'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(data)
+            })
+        }
+
+        function updatefunc(roll,name,dob,gender,branch,semester,email){
+            console.log(roll);
+            console.log(name);
+            document.getElementById('model').style.display='block';
+            document.getElementById('rollno').value=roll;
+            document.getElementById('name').value=name;
+            document.getElementById('dob').value=dob;
+            document.getElementById('gender').value=gender;
+            document.getElementById('branch').value=branch;
+            document.getElementById('semester').value=semester;
+            document.getElementById('email').value=email;
+
+        }
+
+    </script>
+</body>
+
+</html>

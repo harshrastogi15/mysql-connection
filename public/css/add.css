@@ -1,0 +1,52 @@
+body{
+    background-color: rgba(128, 128, 128, 0.147);
+}
+
+h1{
+    width: fit-content;
+    margin: auto;
+}
+
+.formcreation{
+    width: 400px;
+    margin: auto;
+}
+
+.formcreation .element{
+    width: calc(100% - 20px);
+    margin: 10px 10px;
+    font-size: 20px;
+}
+
+.element input{
+    width: calc(90% - 6px);
+    font-size: 18px;
+    padding: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.267);
+    border-radius: 5px;
+    margin: 0px;
+}
+
+.element select{
+    width: 60%;
+    font-size: 18px;
+}
+
+.done{
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+}
+
+.done input{
+    background-color: rgba(128, 128, 128, 0.147);
+    font-size: 18px;
+    width: fit-content;
+    margin: 10px auto;
+    text-align: center;
+    border: 3px solid rgba(128, 128, 128, 0.267);
+}
+
+.done input:hover{
+    border: 10px outset rgba(198, 192, 192, 0.267);
+}
