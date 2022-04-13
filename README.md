@@ -18,9 +18,14 @@ npm install body-parser
 npm install ejs
 ```
 
-after installation 
+After installation 
 start server by
 
 ```bash
 node server.js
+```
+
+Server listen at 
+```bash
+http://localhost:4000/
 ```
